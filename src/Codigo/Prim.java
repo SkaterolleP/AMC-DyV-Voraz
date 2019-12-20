@@ -6,6 +6,8 @@ import java.util.Scanner;
 
 public class Prim {
 
+    float dis;
+
     public void CaminoPrim(ArrayList<Puntos> vector, ArrayList<ArrayList<Puntos>> camino) {
         ArrayList<Puntos> restantes = vector;
         ArrayList<Puntos> visitados = new ArrayList<>();
@@ -15,6 +17,7 @@ public class Prim {
         visitados.add(restantes.get(inicial));
         restantes.remove(inicial);
         PrimRec(restantes, visitados, camino);
+        System.out.println("distancia: " + dis);
     }
 
     private void PrimRec(ArrayList<Puntos> restantes, ArrayList<Puntos> visitados, ArrayList<ArrayList<Puntos>> camino) {
@@ -26,10 +29,14 @@ public class Prim {
                 for (int j = 0; j < restantes.size(); j++) {
                     float d = distancia(visitados.get(i), restantes.get(j));
                     if (d < tam) {
+                        dis += d;
                         tam = d;
                         index = i;
                         jdex = j;
                     }
+                    Puntos p = new Puntos(d, index, jdex);
+                    arista.add(p);
+                    camino.add(arista);
                 }
             }
         }

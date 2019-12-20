@@ -23,7 +23,9 @@ public class Main {
         System.out.println("Generar datos de manera aleatoria?: (y,n)");
         opcion = teclado.nextLine();
         if (opcion.equals("n")) {
-            String fichero = ".\\d493.tsp";
+            //System.out.println("Introduzca el nombre del fichero que quiere leer: ");
+            //String fic = teclado.nextLine() + ".tsp";
+            String fichero = ".\\d493.tsp";// + fic;
             mf = new Lector(fichero);
             mf.leeFichero(vector);
         } else {
@@ -39,6 +41,7 @@ public class Main {
         System.out.println("1.- Busqueda Exhaustiva.");
         System.out.println("2.- Divide y venceras");
         System.out.println("3.- Prim");
+        System.out.println("4.- Kruscal");
         bus = teclado.nextInt();
         switch (bus) {
             case 1:
@@ -69,12 +72,14 @@ public class Main {
                 break;
             case 3:
                 Prim p = new Prim();
+                System.out.println(vector.isEmpty());
                 p.CaminoPrim(vector, camino);
                 fGNU = new FicheroGNU();
                 fGNU.ComandosArbol();
                 fGNU.arbol(camino);
                 break;
             case 4:
+                break;
 
         }
         System.out.println("llego");
