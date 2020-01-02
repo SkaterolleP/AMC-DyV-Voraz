@@ -29,16 +29,24 @@ public class Prim {
                 for (int j = 0; j < restantes.size(); j++) {
                     float d = distancia(visitados.get(i), restantes.get(j));
                     if (d < tam) {
-                        dis += d;
                         tam = d;
                         index = i;
                         jdex = j;
                     }
-                    Puntos p = new Puntos(d, index, jdex);
-                    arista.add(p);
-                    camino.add(arista);
                 }
             }
+            dis += tam;
+            //nueva arista del camino
+            arista.add(visitados.get(index));
+            arista.add(restantes.get(jdex));
+
+            //actualiza listas
+            visitados.add(restantes.get(jdex));
+            restantes.remove(jdex);
+
+            //añadimos los caminos
+            camino.add(arista);
+            PrimRec(restantes, visitados, camino);
         }
     }
 

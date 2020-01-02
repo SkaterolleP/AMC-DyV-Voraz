@@ -67,18 +67,30 @@ public class Main {
                 heap.ordenaMonticulos(vector);
                 vectorSol = dv.triangulo(vector);
                 tfin = System.currentTimeMillis();
-                System.out.println("Total: " + (tfin - tini));
+                System.out.println("Tiempo Total: " + (tfin - tini));
                 fGNU.Solucion(vectorSol);
                 break;
             case 3:
                 Prim p = new Prim();
                 System.out.println(vector.isEmpty());
+                tini = System.currentTimeMillis();
                 p.CaminoPrim(vector, camino);
+                tfin = System.currentTimeMillis();
+                System.out.println("Tiempo Total: " + (tfin - tini));
                 fGNU = new FicheroGNU();
                 fGNU.ComandosArbol();
                 fGNU.arbol(camino);
                 break;
             case 4:
+                Kruscal c = new Kruscal();
+                //System.out.println(vector.isEmpty());
+                tini = System.currentTimeMillis();
+                c.CaminoKrus(vector, camino);
+                tfin = System.currentTimeMillis();
+                System.out.println("Tiempo Total: " + (tfin - tini));
+                fGNU = new FicheroGNU();
+                fGNU.ComandosArbol();
+                fGNU.arbol(camino);
                 break;
 
         }
