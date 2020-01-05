@@ -44,6 +44,19 @@ public class Perimetros {
         }
         System.out.println("Perimetro:"+perimetroMin);
     }
+    
+    public float Busqueda(ArrayList<Puntos> vector, ArrayList<Puntos> vectorsol, int a) {
+        float perimetroAct;
+        for (int i = 0; i < vector.size(); i++) {
+            for (int j = i + 1; j < vector.size(); j++) {
+                for (int k = j + 1; k < vector.size(); k++) {
+                    perimetroAct = CalculaPerimetro(vector, i, j, k);
+                    CompararMinimo(vector, vectorsol, perimetroAct, i, j, k);
+                }
+            }
+        }
+        return perimetroMin;
+    }
 
     public void CompararMinimo(ArrayList<Puntos> vector, ArrayList<Puntos> vectorsol, float perimetroAct, int i, int j, int k) {
         if (perimetroAct < perimetroMin) {

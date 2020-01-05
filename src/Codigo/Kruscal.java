@@ -18,6 +18,7 @@ public class Kruscal {
     static int INFINITO = 0xFFFF;
     private double[][] matrizdistancia;
     private int numv;
+    private double cos;
     private ArrayList<Puntos> nodos = new ArrayList();
     private boolean[] vis;
 
@@ -102,9 +103,13 @@ public class Kruscal {
          */
         //System.out.println(ne);
         System.out.println("");
+        cos = minimo_costo;
         System.out.println("Costo minimo = " + minimo_costo);
     }
 
+    public double per(){
+        return cos;
+    }
     private float distancia(Puntos p1, Puntos p2) {
         float xP1 = p1.getx(), xP2 = p2.getx();
         float yP1 = p1.gety(), yP2 = p2.gety();

@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 public class DivVenc {
     
+    private float perimetromin;
     DivVenc(ArrayList<Puntos> vector) {
     }
 
@@ -12,10 +13,14 @@ public class DivVenc {
         int j = vector.size() - 1;
         ArrayList<Puntos> t = triangulorecursivo(vector, i, j);
         float perm = CalcularPerimetro(t);
+        perimetromin = perm;
         System.out.println("Perimetro:"+perm);
         return t;
     }
 
+    public float per(){
+        return perimetromin;
+    }
     private ArrayList<Puntos> triangulorecursivo(ArrayList<Puntos> vector, int i, int j) {
         ArrayList<Puntos> sol = new ArrayList<>();
         float perm;

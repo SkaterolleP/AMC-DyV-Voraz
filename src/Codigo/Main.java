@@ -23,9 +23,10 @@ public class Main {
         System.out.println("Generar datos de manera aleatoria?: (y,n)");
         opcion = teclado.nextLine();
         if (opcion.equals("n")) {
-            //System.out.println("Introduzca el nombre del fichero que quiere leer: ");
-            //String fic = teclado.nextLine() + ".tsp";
-            String fichero = ".\\d493.tsp";// + fic;
+            System.out.println("Introduzca el nombre del fichero que quiere leer: ");
+            String fichero = teclado.nextLine() + ".tsp";
+            //String fichero = ".\\d493.tsp";// + fic;
+            System.out.println(fichero);
             mf = new Lector(fichero);
             mf.leeFichero(vector);
         } else {

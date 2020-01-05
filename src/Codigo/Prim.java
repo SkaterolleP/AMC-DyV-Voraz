@@ -19,7 +19,19 @@ public class Prim {
         PrimRec(restantes, visitados, camino);
         System.out.println("distancia: " + dis);
     }
+    public void CaminoPrim(ArrayList<Puntos> vector, ArrayList<ArrayList<Puntos>> camino, int pi) {
+        ArrayList<Puntos> restantes = vector;
+        ArrayList<Puntos> visitados = new ArrayList<>();
+        int inicial = pi;
+        visitados.add(restantes.get(inicial));
+        restantes.remove(inicial);
+        PrimRec(restantes, visitados, camino);
+        System.out.println("distancia: " + dis);
+    }
 
+    public float per(){
+        return dis;
+    }
     private void PrimRec(ArrayList<Puntos> restantes, ArrayList<Puntos> visitados, ArrayList<ArrayList<Puntos>> camino) {
         if (!restantes.isEmpty()) {
             ArrayList<Puntos> arista = new ArrayList<>();
